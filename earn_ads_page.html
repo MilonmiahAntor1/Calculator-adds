@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+    body {
+        background: #000;
+        font-family: Arial, sans-serif;
+        color: #fff;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .earn-header {
+        padding: 10px 0;
+    }
+
+    .earn-title {
+        font-size: 32px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .earn-title-icon {
+        width: 35px;
+        height: 35px;
+        border: 3px solid white;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .earn-sub {
+        color: #8af47c;
+        font-size: 15px;
+        margin-top: 4px;
+    }
+
+    .tabs {
+        display: flex;
+        gap: 22px;
+        margin-top: 18px;
+    }
+
+    .tab-btn {
+        font-size: 28px;
+        font-weight: 900;
+        opacity: 0.9;
+        background: none;
+        border: none;
+        color: white;
+        padding: 8px 22px;
+        cursor: pointer;
+        border-radius: 40px;
+        transition: 0.3s ease;
+    }
+
+    .tab-btn:nth-child(2) {
+        margin-left: 25px;
+    }
+
+    .tab-btn.active {
+        background: linear-gradient(90deg, #ff00c8, #b300ff);
+        box-shadow:
+            0 0 20px #ff00dd,
+            0 0 40px #ff00dd,
+            0 0 60px #ff00dd;
+    }
+
+    .task-box {
+        margin-top: 25px;
+        background: #111;
+        padding: 18px;
+        border-radius: 18px;
+        border: 2px solid #ffdd00;
+        box-shadow:
+            0 0 10px #ffdd00,
+            0 0 20px #ffdd00;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .task-left {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        flex-direction: column;
+    }
+
+    .row-top {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .task-ad-tag {
+        background: white;
+        color: black;
+        font-weight: 700;
+        border-radius: 6px;
+        padding: 3px 8px;
+        font-size: 13px;
+    }
+
+    .task-title {
+        font-size: 20px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .task-reward {
+        background: #333;
+        padding: 3px 10px;
+        border-radius: 8px;
+        font-size: 16px;
+        color: #8af47c;
+        font-weight: 700;
+        margin-left: 5px;
+        align-self: flex-start;
+    }
+
+    .start-btn {
+        background: #333;
+        color: white;
+        border: none;
+        padding: 10px 22px;
+        border-radius: 25px;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="earn-header">
+    <div class="earn-title">
+        <div class="earn-title-icon"></div>
+        Earn
+    </div>
+
+    <div class="earn-sub">
+        Get more premium version by completing tasks.
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active">All</button>
+        <button class="tab-btn">Partners</button>
+    </div>
+</div>
+
+<div class="task-box">
+    <div class="task-left">
+
+        <div class="row-top">
+            <div class="task-ad-tag">Ad</div>
+            <div class="task-title">View ads & click</div>
+        </div>
+
+        <div class="task-reward">primium</div>
+    </div>
+
+    <button class="start-btn" onclick="startAd()">Start</button>
+</div>
+
+<script src="https://libtl.com/sdk.js" data-zone="10420536" data-sdk="show_10420536"></script>
+
+<script>
+    const tabs = document.querySelectorAll(".tab-btn");
+    tabs.forEach(btn => {
+        btn.addEventListener("click", () => {
+            tabs.forEach(t => t.classList.remove("active"));
+            btn.classList.add("active");
+        });
+    });
+
+    function startAd() {
+        show_10420536()
+            .then(() => {
+                alert("You have seen an ad! (+primium features)");
+            })
+            .catch(() => {
+                alert("Ad failed to load. Try again.");
+            });
+    }
+</script>
+
+</body>
+</html>
