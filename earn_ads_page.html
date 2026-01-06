@@ -62,12 +62,13 @@
 
     .tab-btn.active {
         background: linear-gradient(90deg, #ff00c8, #b300ff);
-        box-shadow:
+        box-shadow: 
             0 0 20px #ff00dd,
             0 0 40px #ff00dd,
             0 0 60px #ff00dd;
     }
 
+    /* Ad Task Box */
     .task-box {
         margin-top: 25px;
         background: #111;
@@ -86,7 +87,7 @@
         display: flex;
         align-items: flex-start;
         gap: 12px;
-        flex-direction: column;
+        flex-direction: column;  /* নিচে সাজানোর জন্য */
     }
 
     .row-top {
@@ -118,7 +119,7 @@
         color: #8af47c;
         font-weight: 700;
         margin-left: 5px;
-        align-self: flex-start;
+        align-self: flex-start; /* বামে রাখবে */
     }
 
     .start-btn {
@@ -152,6 +153,8 @@
     </div>
 </div>
 
+
+<!-- ⭐ Ad Task Box ⭐ -->
 <div class="task-box">
     <div class="task-left">
 
@@ -166,9 +169,12 @@
     <button class="start-btn" onclick="startAd()">Start</button>
 </div>
 
+
+<!-- ⭐ Monetag Script ⭐ -->
 <script src="https://libtl.com/sdk.js" data-zone="10420536" data-sdk="show_10420536"></script>
 
 <script>
+    // ⭐ Tabs Switch
     const tabs = document.querySelectorAll(".tab-btn");
     tabs.forEach(btn => {
         btn.addEventListener("click", () => {
@@ -177,6 +183,7 @@
         });
     });
 
+    // ⭐ Ad When Start Clicked
     function startAd() {
         show_10420536()
             .then(() => {
